@@ -10,17 +10,24 @@ let package = Package(
     products: [
         .library(
             name: "QBImagePicker",
-            targets: ["QBImagePicker"])
+            targets: ["QBImagePicker"]),
+        .library(
+            name: "Test",
+            targets: ["Test"])
     ],
     targets: [
         .target(
             name: "QBImagePicker",
             path:"QBImagePicker",
             exclude: ["Info.plist"],
-            publicHeadersPath: "QBImagePicker"
+            publicHeadersPath: "include"
 //            resources: [
 //                .copy("SKPhotoBrowser.bundle")
 //            ]),
+            ),
+        .target(
+            name: "Test",
+            dependencies: ["QBImagePicker"], path:"Test"
             ),
         .testTarget(
             name: "QBImagePickerTests",
